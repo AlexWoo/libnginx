@@ -15,6 +15,10 @@ DEPS = 	include/ngx_array.h 		\
 		include/ngx_rbtree.h 		\
 		include/ngx_string.h 		\
 		include/ngx_alloc.h 		\
+		include/ngx_auto_config.h 	\
+		include/ngx_config.h 		\
+		include/ngx_core.h 			\
+		include/ngx_linux_config.h 	\
 
 libnginx.so: objs/ngx_array.o 		\
 			 objs/ngx_buf.o 		\
@@ -45,8 +49,8 @@ all:
 	make
 
 install:
-	mkdir /usr/local/include/libnginx
-	cp -rf include/*.h /usr/local/include/libnginx/
+	-mkdir /usr/local/include/libnginx
+	cp $(DEPS) /usr/local/include/
 	cp libnginx.so /usr/local/lib/
 
 clean:
