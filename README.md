@@ -78,22 +78,6 @@ Nginx version 1.10.0
 	    }
 	
 	    return NGX_OK;
-	    /* wujie the code below fill Host into request_line, recode above
-	    ngx_int_t len = sizeof("Host: \r\n\r\n") + ctx->pull_host.len;
-	    if(len + request_line->len > request_line->buf_len){
-	        request_line->buf_len = len + request_line->len + 64;
-	        u_char * data = (u_char *)ngx_palloc(ctx->pool,request_line->buf_len);
-	        ngx_memcpy(data,request_line->data,request_line->len);
-	        request_line->data = data;
-	    }
-	    u_char *last = ngx_strnstr(request_line->data,(char *)"Host:",request_line->len);
-	    if(last == NULL){
-	        last = request_line->data + request_line->len;
-	    }
-	    u_char * end  = request_line->data + request_line->buf_len;
-	    //灏咹ost杩炴帴鍦ㄦ渶鍚?
-	    request_line->len = ngx_slprintf(last, end, "Host: %V\r\n\r\n", &ctx->pull_host) - request_line->data;
-	    return NGX_OK;*/
 	}
 	
 	int main()
